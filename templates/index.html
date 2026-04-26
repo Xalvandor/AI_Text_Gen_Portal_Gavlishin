@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Text Generation Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main>
+    <h1>nanoGPt Text Generator</h1>
+    <button id="generateButton">Generate Text</button>
+    <div class="loader" id="loader">
+        <span></span><span></span><span></span>
+    </div>
+    <pre id="output"></pre>
+    <script>
+        document.getElementById('generateButton').onclick = async function() {
+            const loader = document.getElementById('loader');
+            const output = document.getElementById('output');
+
+            output.textContent = '';
+            loader.classList.add('active');
+
+            const response = await fetch('/generate');
+            const data = await response.json();
+
+            loader.classList.remove('active');
+            output.textContent = data.output;
+        }
+    </script>
+</main>
+
+</body>
+</html>

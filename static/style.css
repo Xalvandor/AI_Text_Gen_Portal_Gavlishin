@@ -19,7 +19,7 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Calibri', sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;

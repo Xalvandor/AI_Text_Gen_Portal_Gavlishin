@@ -19,9 +19,7 @@ def generate_text():
         ],
         capture_output=True, text=True
     )
-    print(result)
-    print(result.stdout)
-    return jsonify({"output": result.stdout})
+    return jsonify({"output": result.stdout.strip()})
 
 if __name__ == '__main__':
     app.run(debug=True)
